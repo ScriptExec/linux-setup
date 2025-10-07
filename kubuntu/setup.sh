@@ -53,9 +53,8 @@ xdg-settings set default-web-browser chromium-browser.desktop
 # Setup mouse cursor
 git clone https://github.com/yeyushengfan258/Win10OS-cursors
 cd ./Win10OS-cursors
-chmod +x ./install.sh && ./install.sh
+chmod +x ./install.sh && sudo ./install.sh
 cd ../
-# Set cursor theme to Windows 10
 kwriteconfig5 --file ~/.config/kcminputrc --group Mouse --key cursorTheme Win10OS Cursors
 
 # Clean up
