@@ -12,10 +12,25 @@ chsh -s $(which zsh)
 lookandfeeltool -a org.kde.breezedark.desktop
 
 # Enable background blur in Konsole
-konsole_profile=$(grep -l "KonsoleProfile" ~/.local/share/konsole/*.profile | head -n 1)
-if [ -n "$konsole_profile" ]; then
-	kwriteconfig5 --file "$konsole_profile" --group "General" --key "Blur" "true"
-fi
+konsole_profile_dir="$HOME/.local/share/konsole"
+profile_name="Main.profile"
+profile_path="$konsole_profile_dir/$profile_name"
+
+mkdir -p "$konsole_profile_dir"
+
+cat > "$profile_path" <<EOF
+[General]
+Name=Main
+Icon=utilities-terminal
+ColorScheme=Breeze
+Transparency=0.75
+Blur=true
+EOF
+
+kwriteconfig5 --file "$konsole_profile_dir/Shell.profile" --group General --key Transparency 0.75
+kwriteconfig5 --file "$konsole_profile_dir/Shell.profile" --group General --key Blur true
+
+kwriteconfig5 --file "$konsole_profile_dir/konsole.conf" --group "Desktop Entry" --key DefaultProfile "$profile_name"
 
 # Enable blur in KDE Plasma (for panels and menus)
 kwriteconfig5 --file kwinrc --group Compositing --key Enabled true
