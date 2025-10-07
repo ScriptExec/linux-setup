@@ -1,11 +1,11 @@
+sudo apt install -y build-essential git
+
 # Setup zsh
-sudo apt install zsh
+sudo apt  -y install zsh
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 cp ../common/.zshrc ~/.zshrc
-
-sudo apt install -y build-essential git
 
 # Set default shell to zsh
 chsh -s $(which zsh)
@@ -48,3 +48,8 @@ sudo apt install code
 
 # Install Chromium Browser
 sudo apt install chromium-browser
+xdg-settings set default-web-browser chromium-browser.desktop
+
+# Setup mouse cursor
+git clone https://github.com/yeyushengfan258/Win10OS-cursors
+chmod +x ./Win10OS-cursors/install.sh && ./Win10OS-cursors/install.sh
