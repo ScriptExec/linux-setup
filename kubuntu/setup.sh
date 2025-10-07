@@ -1,5 +1,5 @@
 # Setup zsh
-sudo apt install zsh
+sudo apt install zsh zsh-syntax-highlighting zsh-autosuggestions
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 cp ../common/.zshrc ~/.zshrc
 
@@ -10,6 +10,12 @@ chsh -s $(which zsh)
 
 # Enable dark mode for KDE Plasma
 lookandfeeltool -a org.kde.breezedark.desktop
+
+# Enable background blur in Konsole
+konsole_profile=$(grep -l "KonsoleProfile" ~/.local/share/konsole/*.profile | head -n 1)
+if [ -n "$konsole_profile" ]; then
+	kwriteconfig5 --file "$konsole_profile" --group "General" --key "Blur" "true"
+fi
 
 # Enable blur in KDE Plasma (for panels and menus)
 kwriteconfig5 --file kwinrc --group Compositing --key Enabled true
