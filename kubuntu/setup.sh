@@ -56,8 +56,7 @@ cd ./Win10OS-cursors
 chmod +x ./install.sh && ./install.sh
 cd ../
 # Set cursor theme to Windows 10
-kwriteconfig5 --file ~/.config/kcminputrc --group Mouse --key cursorTheme Win10OS
-kcminit5 mouse
+kwriteconfig5 --file ~/.config/kcminputrc --group Mouse --key cursorTheme Win10OS Cursors
 
 # Clean up
 rm -rf Win10OS-cursors
