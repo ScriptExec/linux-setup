@@ -55,7 +55,7 @@ git clone https://github.com/yeyushengfan258/Win10OS-cursors
 cd ./Win10OS-cursors
 chmod +x ./install.sh && sudo ./install.sh
 cd ../
-kwriteconfig5 --file ~/.config/kcminputrc --group Mouse --key cursorTheme Win10OS Cursors
+kwriteconfig5 --file ~/.config/kcminputrc --group Mouse --key cursorTheme Win10OS-cursors
 
 # Clean up
 rm -rf Win10OS-cursors
